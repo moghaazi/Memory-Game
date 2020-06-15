@@ -3,6 +3,20 @@ if (module.hot) {
   module.hot.accept()
 }
 
+// Strart Game ================================================
+document.querySelector(`.start-game button`).onclick = () => {
+  let yourName = prompt(`Your Name?`)
+  if (yourName == null || yourName == ``) {
+    document.querySelector(`.name`).innerHTML = `Unknown`
+  } else {
+    document.querySelector(`.name`).innerHTML = yourName
+  }
+
+  document.querySelector(`.start-game`).remove()
+  document.getElementById(`start`).play()
+}
+
+// Varibles ===================================================
 let imgs = document.querySelectorAll(`.memory-card`)
 
 let hasShow = false
@@ -30,7 +44,10 @@ function showImg() {
 
 // Chech Match
 let checkMatc = () => {
+  let tries = document.querySelector(`.tries span`)
   firstImg.dataset.img === secImg.dataset.img ? disableImg() : unflipImg()
+  tries.innerHTML = Number(tries.innerHTML) + 1
+  document.getElementById(`click-img`).play()
 }
 
 // Disable Img
@@ -39,6 +56,7 @@ let disableImg = () => {
   secImg.removeEventListener(`click`, showImg)
 
   resetBoard()
+  document.getElementById(`success`).play()
 }
 
 // Unflip Img

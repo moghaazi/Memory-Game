@@ -12,11 +12,20 @@ html(lang="en")
 
     body
         .container
-        
+
+            .start-game: button Start Game
+            audio#start(src="./assets/music/click-2.mp3" preload="auto")
+            audio#click-img(src="./assets/music/click-4.mp3" preload="auto")
+            audio#success(src="./assets/music/click-3.mp3" preload="auto")
+
+
             .game-cont
                 .info
                     .name Name
-                    .tries Tries: 0
+                    .timer 2:53
+                    .reste Reset
+                    .tries Moves: 
+                        span 0
 
                 .memory-game
 

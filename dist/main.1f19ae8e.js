@@ -121,7 +121,22 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // HMR
 if (module.hot) {
   module.hot.accept();
-}
+} // Strart Game ================================================
+
+
+document.querySelector(".start-game button").onclick = function () {
+  var yourName = prompt("Your Name?");
+
+  if (yourName == null || yourName == "") {
+    document.querySelector(".name").innerHTML = "Unknown";
+  } else {
+    document.querySelector(".name").innerHTML = yourName;
+  }
+
+  document.querySelector(".start-game").remove();
+  document.getElementById("start").play();
+}; // Varibles ===================================================
+
 
 var imgs = document.querySelectorAll(".memory-card");
 var hasShow = false;
@@ -147,7 +162,10 @@ function showImg() {
 
 
 var checkMatc = function checkMatc() {
+  var tries = document.querySelector(".tries span");
   firstImg.dataset.img === secImg.dataset.img ? disableImg() : unflipImg();
+  tries.innerHTML = Number(tries.innerHTML) + 1;
+  document.getElementById("click-img").play();
 }; // Disable Img
 
 
@@ -155,6 +173,7 @@ var disableImg = function disableImg() {
   firstImg.removeEventListener("click", showImg);
   secImg.removeEventListener("click", showImg);
   resetBoard();
+  document.getElementById("success").play();
 }; // Unflip Img
 
 
@@ -215,7 +234,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "11106" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1405" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

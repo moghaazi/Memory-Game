@@ -37,6 +37,34 @@ body {
 }
 
 /* ==================== Game Style ================================================ */
+.start-game {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+.start-game button {
+  all: unset;
+  background: linear-gradient(to right, gold 35%, orange);
+  color: #000;
+  font: bold 3em "Kalam", cursive;
+  border-radius: 50px;
+  width: 300px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.start-game button:active {
+  transform: scale(0.8);
+}
+
 .game-cont {
   width: 900px;
   height: 90vh;
@@ -58,10 +86,7 @@ body {
   align-items: center;
   box-shadow: 3px 3px #ff5e62;
   border-radius: 3px;
-}
-.game-cont .info .name,
-.game-cont .info .tries {
-  font: bold 1.5em "Kalam", cursive;
+  font: bold 1.3em "Kalam", cursive;
   font-family: "Kalam", cursive;
   letter-spacing: 0.3px;
   background: linear-gradient(to left, #ff9966, #ff5e62);
